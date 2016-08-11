@@ -4,7 +4,7 @@ import {Tasks} from '../api/tasks.js';
 
 import './task.html';
 
-Template.name.events({
+Template.task.events({
   "click .toggle-checked": function(event){
      //set the checked property to the opposite of its current value
      Tasks.update(this._id, {

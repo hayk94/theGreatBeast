@@ -40,5 +40,8 @@ Template.body.events({
 
      //clear form
      target.text.value ='';
-  }
+  },
+  'change .hide-completed input'(event, instance) {
+    instance.state.set('hideCompleted', event.target.checked);
+  },
 });

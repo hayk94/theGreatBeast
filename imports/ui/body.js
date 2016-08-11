@@ -52,6 +52,7 @@ Template.body.events({
 
      //clear form
      target.text.value ='';
+     console.log(Meteor.user());
   },
   'change .hide-completed input'(event, instance) {
     instance.state.set('hideCompleted', event.target.checked);

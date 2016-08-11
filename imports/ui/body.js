@@ -23,7 +23,11 @@ Template.body.helpers({
     if (instance.state.get('hideCompleted')) {
       return Tasks.find({checked: { $ne:true } }, { sort: { createdAt: -1 } });
     }
+    //otherwise, return all of the tasks
     return Tasks.find({}, {sort: { createdAt: -1 } });
+  },
+  incompleteCount() {
+    return Tasks.find({checked: { $ne: true } }).count();
   },
 });
 

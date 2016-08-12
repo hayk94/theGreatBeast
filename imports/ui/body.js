@@ -57,7 +57,13 @@ Template.body.onCreated(function bodyOnCreated() {
         dot.style.top = event.pageY + "px";
 
     }
-  })();
+  })();//func mousetracker
+
+  // TODO: send the pageX and pageY to the db and then get them from the db and assign to another element
+      // TODO: Create a new collection
+      // TODO: send the pageX and pageY
+      // TODO: get the pageX and pageY
+      
   //mouse tracker
 
 

@@ -4,6 +4,12 @@ import {Tasks} from '../api/tasks.js';
 
 import './task.html';
 
+Template.task.helpers({
+  isOwner() {
+    return this.owner === Meteor.userId();
+  },
+});
+
 Template.task.events({
   "click .toggle-checked": function(event){
      //set the checked property to the opposite of its current value

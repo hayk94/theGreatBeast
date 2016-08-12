@@ -19,7 +19,7 @@ Template.body.onCreated(function bodyOnCreated() {
   Meteor.subscribe("tasks");
 
 // mousetracker
-  console.log('I log');
+  // console.log('I log');
   (function() {
 //     "use strict";
     var dot;
@@ -63,7 +63,7 @@ Template.body.onCreated(function bodyOnCreated() {
       // TODO: Create a new collection
       // TODO: send the pageX and pageY
       // TODO: get the pageX and pageY
-      
+
   //mouse tracker
 
 

@@ -4,6 +4,8 @@ import {Template} from 'meteor/templating';
 
 import {Tasks} from '../api/tasks.js';
 
+import {mtis} from '../api/mouseTrackerInfos.js'
+
 import './task.html';
 
 
@@ -79,6 +81,18 @@ Template.task.events({
 
 
           }
+          var positions = {
+            x:event.pageX,
+            y:event.pageY
+          }
+          Meteor.call('mtis.insert',positions);
+          // mtis.insert({
+          //   x:event.pageX,
+          //   y:event.pageY,
+          // });
+          var myText = mtis.find({});
+
+          console.log(myText);
           if (!Meteor.userId()) {
 
             dot.style.left = event.pageX + "px";

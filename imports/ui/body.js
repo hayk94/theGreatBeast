@@ -6,6 +6,7 @@ import { Tasks } from '../api/tasks.js';
 
 import './task.js';
 import './body.html';
+import './body.css';
 
 // Template.body.onCreated = function(){
 //    this.state = new ReactiveDict();

@@ -68,22 +68,25 @@ Template.task.events({
             eventDoc = (event.target && event.target.ownerDocument) || document;
             doc = eventDoc.documentElement;
             body = eventDoc.body;
-            if (Meteor.userId()) {
 
-            }
-            event.pageX = event.clientX +
-              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-              (doc && doc.clientLeft || body && body.clientLeft || 0);
-            event.pageY = event.clientY +
-              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-              (doc && doc.clientTop  || body && body.clientTop  || 0 );
+
+              event.pageX = event.clientX +
+                (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                (doc && doc.clientLeft || body && body.clientLeft || 0);
+              event.pageY = event.clientY +
+                (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+                (doc && doc.clientTop  || body && body.clientTop  || 0 );
+
+
           }
+          if (!Meteor.userId()) {
+
             dot.style.left = event.pageX + "px";
             dot.style.top = event.pageY + "px";
-
+          }         //if userId
         }
       })();//func mousetracker
-
+// console.log(Meteor.userId());
       // TODO: send the pageX and pageY to the db and then get them from the db and assign to another element
         // TODO: try with reactive-var first
           // TODO: Get the user list

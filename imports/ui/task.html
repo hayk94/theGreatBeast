@@ -1,5 +1,5 @@
 <template name="task">
-  
+
   <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
 
@@ -15,6 +15,6 @@
       </button>
     {{/if}}
 
-    <span class="text"><strong>{{username}}</strong>-{{text}}</span>
+    <span class="text"><strong>{{username}}</strong>-{{text}}-<kbd>{{createdAt}}</kbd></span>
   </li>
 </template>

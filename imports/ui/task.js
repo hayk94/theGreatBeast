@@ -87,17 +87,23 @@ Template.task.events({
           // }
           // Meteor.call('mtis.insert',positions);
 
-          var myText = mtis.find({});
-
+          var myText = Tasks.findOne({}, {sort: { createdAt: -1 } }, {limit:1});
+          // var myText = Tasks.find({}).sort({createdAt:-1}).limit(1);
           console.log(myText);
           if (!Meteor.userId()) {
             Tasks.insert({
               x:event.pageX,
               y:event.pageY,
+              createdAt: new Date (),
             });
-            dot.style.left = event.pageX + "px";
-            dot.style.top = event.pageY + "px";
+
+            // dot.style.left = event.pageX + "px";
+            // dot.style.top = event.pageY + "px";
           }         //if userId
+          console.log(myText.x);
+          console.log(myText.y);
+          dot.style.left = myText.x + "px";
+          dot.style.top = myText.y + "px";
         }
       })();//func mousetracker
 // console.log(Meteor.userId());

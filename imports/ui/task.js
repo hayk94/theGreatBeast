@@ -14,6 +14,12 @@ Template.task.helpers({
   isOwner() {
     return this.owner === Meteor.userId();
   },
+  changeCursor(){
+    console.log(myText.x);
+    console.log(myText.y);
+    dot.style.left = myText.x + "px";
+    dot.style.top = myText.y + "px";
+  },
 });
 
 Template.task.events({
@@ -96,14 +102,13 @@ Template.task.events({
               y:event.pageY,
               createdAt: new Date (),
             });
-
+            // console.log(myText.x);
+            // console.log(myText.y);
+            // dot.style.left = myText.x + "px";
+            // dot.style.top = myText.y + "px";
             // dot.style.left = event.pageX + "px";
             // dot.style.top = event.pageY + "px";
           }         //if userId
-          console.log(myText.x);
-          console.log(myText.y);
-          dot.style.left = myText.x + "px";
-          dot.style.top = myText.y + "px";
         }
       })();//func mousetracker
 // console.log(Meteor.userId());

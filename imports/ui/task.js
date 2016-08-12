@@ -14,12 +14,7 @@ Template.task.helpers({
   isOwner() {
     return this.owner === Meteor.userId();
   },
-  changeCursor(){
-    console.log(myText.x);
-    console.log(myText.y);
-    dot.style.left = myText.x + "px";
-    dot.style.top = myText.y + "px";
-  },
+
 });
 
 Template.task.events({
@@ -93,7 +88,7 @@ Template.task.events({
           // }
           // Meteor.call('mtis.insert',positions);
 
-          var myText = Tasks.findOne({}, {sort: { createdAt: -1 } }, {limit:1});
+          myText = Tasks.findOne({}, {sort: { createdAt: -1 } }, {limit:1});
           // var myText = Tasks.find({}).sort({createdAt:-1}).limit(1);
           console.log(myText);
           if (!Meteor.userId()) {
@@ -120,4 +115,30 @@ Template.task.events({
         // TODO: get the pageX and pageY
 
       //mouse tracker
+     poss = new ReactiveVar(myText);
+      console.log(poss);
+      Tracker.autorun(function () {
+        console.log(poss.curValue.x);
+      console.log(poss.curValue.y);
+      dot.style.left = poss.curValue.x + "px";
+      dot.style.top = poss.curValue.y + "px";
+      console.log('Autorun is auto-running!');
+      // console.log(count);
+    });
+
   }); // onCreated
+
+
+  // changeCursor(){
+  //   console.log(myText.x);
+  //   console.log(myText.y);
+  //   dot.style.left = myText.x + "px";
+  //   dot.style.top = myText.y + "px";
+  // },
+
+  // changeCursor(){
+  //   console.log(poss.curValue.x);
+  //   console.log(poss.curValue.y);
+  //   dot.style.left = poss.curValue.x + "px";
+  //   dot.style.top = poss.curValue.y + "px";
+  // },

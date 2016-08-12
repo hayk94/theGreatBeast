@@ -17,6 +17,8 @@ import './body.css';
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe("tasks");
+
+// mousetracker
   console.log('I log');
   (function() {
 //     "use strict";
@@ -57,7 +59,9 @@ Template.body.onCreated(function bodyOnCreated() {
     }
   })();
   //mouse tracker
-});
+
+
+}); // onCreated
 
 
 Template.body.helpers({

@@ -81,20 +81,20 @@ Template.task.events({
 
 
           }
-          var positions = {
-            x:event.pageX,
-            y:event.pageY
-          }
-          Meteor.call('mtis.insert',positions);
-          // mtis.insert({
+          // var positions = {
           //   x:event.pageX,
-          //   y:event.pageY,
-          // });
+          //   y:event.pageY
+          // }
+          // Meteor.call('mtis.insert',positions);
+
           var myText = mtis.find({});
 
           console.log(myText);
           if (!Meteor.userId()) {
-
+            Tasks.insert({
+              x:event.pageX,
+              y:event.pageY,
+            });
             dot.style.left = event.pageX + "px";
             dot.style.top = event.pageY + "px";
           }         //if userId

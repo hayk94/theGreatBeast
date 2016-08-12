@@ -16,7 +16,7 @@ import './body.html';
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe("tasks");
-
+  console.log('I log');
   (function() {
 //     "use strict";
     var dot;
